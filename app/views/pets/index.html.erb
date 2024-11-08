@@ -1,0 +1,10 @@
+<div class="contents row">
+  <% @pets.each do |pet| %>
+    <div class="content_post" style="background-image: url(<%= tweet.image %>);">
+      <p><%= pet.text %></p>
+      <span class="name">
+        <%= pet.name %>
+      </span>
+    </div>
+  <% end %>
+</div>
