@@ -1,0 +1,15 @@
+<div class="diary">
+  <div class="upper-diary">
+    <div class="diary-user">
+         <%= diary.user.name %>
+    </div>
+    
+  </div>
+  <div class="lower-diary">
+    <div class="diary-content">
+      <!-- 投稿したメッセージ内容を記述する -->
+      <%= diary.content %>
+    </div>
+    <%= image_tag diary.image.variant(resize: '500x500'), class: 'diary-image' if message.image.attached?  %>
+  </div>
+</div>
