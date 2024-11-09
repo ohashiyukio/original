@@ -8,11 +8,15 @@ encrypted_password | string | null: false |
 
 ## petsテーブル
 pets_name    | string | null: false |
-kind_id      | string | null: false |
-sex_id       | string | null: false |
+kind_id      | integer | null: false |
+sex_id       | integer | null: false |
 birthday_id  | integer| null: false |
 family_day_id| integer| null: false |
 user         | references | null: false, foreign_key: true  |
+
+## association
+belongs_to:  user
+has_many:    diary
 
 ## diariesテーブル
 symptoms | text | null: false |
