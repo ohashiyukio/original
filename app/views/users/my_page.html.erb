@@ -1,0 +1,18 @@
+<% @pets.each do |pet| %>
+
+  <div class="content_post" style="background-image: url(<%=url_for(pet.image) if pet.image.attached? %>);">
+    <p><%= pet.pets_name %></p> <!-- ペットの名前を表示 -->
+    <span class="kind">
+      <%= pet.kind %> <!-- 種類を表示 -->
+    </span>
+    <span class="sex">
+      <%= pet.sex.name %> <!-- 性別を表示 -->
+    </span>
+    <span class="birthday_id">
+      <%= pet.birthday_id %> <!-- 誕生日を表示 -->
+    </span>
+    <span class="family_day_id">
+      <%= pet.family_day_id %> <!-- 家族になった日を表示 -->
+    </span>
+  </div>
+<% end %>

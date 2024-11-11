@@ -23,7 +23,7 @@ symptoms | text | null: false |
 progress | text | null: false |
 medicine | string | null: false |
 hospital | string | null: false |
-pet_id   | string | null: false |
+pet_id   | references | null: false, foreign_key: true  |
 habit    | string | null: false |
 favorite_food  | string | null: false |
 favorite_place | string | null: false |

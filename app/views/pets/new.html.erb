@@ -1,5 +1,10 @@
 <h2>ペットを登録</h2>
+<div class="form-container">
 <%= form_with model: @pet, local: true do |f| %>
+ <div>
+    <%= f.label :image, "ペットの画像" %>
+    <%= f.file_field :image %>
+  </div>
   <div>
     <%= f.label :pets_name, "ペットの名前" %>
     <%= f.text_field :pets_name %>
@@ -10,31 +15,32 @@
   </div>
   <div>
     <%= f.label :sex_id, "オス/メス" %> 
-    <%= f.text_field :sex_id %>
+  <%= f.collection_select :sex_id, Sex.all, :id, :name, prompt: "選択してください" %>
   </div>
   <div class='input-birth-wrap'>
-    <%= f.label :birthday, "誕生日" %>
-    <%= f.date_select :birthday, 
-                      use_month_numbers: true, 
-                      start_year: 1930, 
-                      end_year: (Time.now.year - 5), 
-                      field_order: [:year, :month, :day], 
-                      prompt: { year: '--', month: '--', day: '--' }, 
-                      date_separator: '' %>
-    <p>年</p> <p>月</p> <p>日</p>
-  </div>
-  <div class='input-birth-wrap'>
-    <%= f.label :family_day, "家族になった日" %>
-    <%= f.date_select :family_day, 
-                      use_month_numbers: true, 
-                      start_year: 1930, 
-                      end_year: (Time.now.year - 5), 
-                      field_order: [:year, :month, :day], 
-                      prompt: { year: '--', month: '--', day: '--' }, 
-                      date_separator: '' %>
-    <p>年</p> <p>月</p> <p>日</p>
-  </div>
+  <%= f.label :birthday_id, "誕生日" %>
+  <%= f.date_select :birthday_id, 
+                    use_month_numbers: true, 
+                    start_year: 1930, 
+                    end_year: (Time.now.year - 5), 
+                    field_order: [:year, :month, :day], 
+                    prompt: { year: '--', month: '--', day: '--' }, 
+                    date_separator: '' %>
+  <span>年 /</span><span>月 /</span><span>日</span>
+</div>
+<div class='input-birth-wrap'>
+  <%= f.label :family_day_id, "家族になった日" %>
+  <%= f.date_select :family_day_id, 
+                    use_month_numbers: true, 
+                    start_year: 1930, 
+                    end_year: (Time.now.year - 5), 
+                    field_order: [:year, :month, :day], 
+                    prompt: { year: '--', month: '--', day: '--' }, 
+                    date_separator: '' %>
+  <span>年 /</span><span>月 /</span><span>日</span>
+</div>
   <div>
     <%= f.submit "登録する" %>
   </div>
 <% end %>
+</div>

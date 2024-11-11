@@ -1,0 +1,21 @@
+<h2><%= @pet.pets_name %>の詳細</h2>
+<div>
+  <%= image_tag @pet.image %>
+  <p>種類: <%= @pet.kind %></p>
+  <p>オス/メス: <%= @pet.sex_id %></p>
+  <p>誕生日: <%= @pet.birthday %></p>
+  <p>家族になった日: <%= @pet.family_day %></p>
+  
+<% @pets.each do |pet| %>
+  <div class="content_post">
+    <% if pet.image.attached? %>
+      <%= image_tag pet.image, alt: "#{pet.pets_name}の画像" %>
+    <% else %>
+      <p>画像がありません</p>
+    <% end %>
+    <p><%= pet.pets_name %></p>
+    <span class="kind">
+      <%= pet.kind %>
+    </span>
+  </div>
+</div>

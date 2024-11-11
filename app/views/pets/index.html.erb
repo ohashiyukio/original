@@ -1,10 +1,11 @@
-<div class="contents row">
-  <% @pets.each do |pet| %>
-    <div class="content_post" style="background-image: url(<%= pet.image %>);">
-      <p><%= pet.text %></p>
-      <span class="name">
-        <%= pet.name %>
-      </span>
-    </div>
-  <% end %>
-</div>
+<% @pets.each do |pet| %>
+  <div class="content_post" style="background-image: url(<%= pet.image %>);">
+    <p><%= pet.pets_name %></p> <!-- ペットの名前を表示 -->
+    <span class="kind">
+      <%= pet.kind %> <!-- 種類を表示 -->
+    </span>
+    <span class="sex">
+      <%= pet.sex %> <!-- 種類を表示 -->
+    </span>
+  </div>
+<% end %>
