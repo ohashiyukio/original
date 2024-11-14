@@ -1,10 +1,14 @@
 <div class="contents row">
-  <% @diaries.each do |diary| %>
-    <div class="content_post" style="background-image: url(<%= diary.image %>);">
-      <p><%= diary.text %></p>
-      <span class="name">
-        <%= diary.name %>
-      </span>
-    </div>
+  <% if @diaries.present? %>
+    <% @diaries.each do |diary| %>
+      <div class="content_post">
+        <%= image_tag diary.image if diary.image.attached? %>
+        <p><%= diary.comment_text %></p>
+        <span class="name"><%= diary.pet.pets_name if diary.pet.present? %></span>
+      </div>
+    <% end %>
+  <% else %>
+    <p>日記がありません</p>
   <% end %>
 </div>
+

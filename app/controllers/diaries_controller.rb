@@ -1,11 +1,25 @@
 class DiariesController < ApplicationController
+
   def index
-    @diaries = Diary.all
+    @diaries = Diary.all  # すべての日記を取得
   end
-  
+
+  def new
+    @diary = Diary.new
+  end
+
+  def create
+    @diary = Diary.new(diary_params)
+    if @diary.save
+      redirect_to root_path, notice: "投稿が完了しました"
+    else
+      render :new
+    end
+  end
+
   private
 
-  def message_params
-    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+  def diary_params
+    params.require(:diary).permit(:comment_text, :image, :pet_id)
   end
 end

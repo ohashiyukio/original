@@ -1,0 +1,29 @@
+<div class="center-container">
+  <div class="left-center">
+    <p class="main-text-left">今日も元気だよ〜</p>
+    <p class="sub-text-left">カメ日記</p>
+    <% @diaries.each do |diary| %>
+      <div class="content_post" style="background-image: url(<%= url_for(diary.image) if diary.image.attached? %>);">
+        <p class="comment-text"><%= diary.comment_text %></p>
+      </div>
+    <% end %>
+    <%= paginate @diaries %>
+  </div>
+
+  <div class="right-center">
+    <p class="main-text-right">どうしたの？</p>
+    <p class="sub-text-right">質問相談箱</p>
+    <% @questions.each do |question| %>
+    <div class="content_post" style="background-image: url(<%= url_for(question.image) if question.image.attached? %>);">
+  <%= link_to question_path(question) do %>
+    <p class="comment-text"><%= question.symptoms %></p>
+    <% end %>
+     </div>
+    <% end %>
+    <%= paginate @questions %>
+  </div>
+</div>
+<!-- マップエリア -->
+<div class="map-container">
+  <%= render "shared/map" %>
+</div>

@@ -1,0 +1,68 @@
+<h2>質問相談を投稿</h2>
+<div class="contents row">
+  <div class="container">
+  <%= form_with(model: @question, local: false) do |form| %>
+    <% if @question.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+        <ul>
+          <% @question.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+  <div>
+    <%= form.label :pet_id, "ペットを選択" %>
+    <%= form.collection_select(:pet_id, current_user.pets, :id, :pets_name, prompt: "ペットを選択してください") %>
+  </div>
+
+  <div>
+    <%= form.label :symptoms, "症状" %>
+    <%= form.text_area :symptoms %>
+  </div>
+
+  <div>
+    <%= form.label :progress, "進行状況" %>
+    <%= form.text_area :progress %>
+  </div>
+
+  <div>
+    <%= form.label :medicine, "薬" %>
+    <%= form.text_field :medicine %>
+  </div>
+
+  <div>
+    <%= form.label :hospital, "病院" %>
+    <%= form.text_field :hospital %>
+  </div>
+
+  <div>
+    <%= form.label :habit, "習慣" %>
+    <%= form.text_field :habit %>
+  </div>
+
+  <div>
+    <%= form.label :favorite_food, "好きな食べ物" %>
+    <%= form.text_field :favorite_food %>
+  </div>
+
+  <div>
+    <%= form.label :favorite_place, "好きな場所" %>
+    <%= form.text_field :favorite_place %>
+  </div>
+
+  <div>
+    <%= form.label :image, "画像" %>
+    <%= form.file_field :image %>
+  </div>
+
+  <div>
+    <%= form.submit "質問相談投稿" %>
+  </div>
+<% end %>
+
+</div>
+</div>

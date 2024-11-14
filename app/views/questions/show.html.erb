@@ -1,0 +1,47 @@
+<h2>質問相談箱</h2>
+<div class="contents row">
+  <!-- 質問相談の写真と詳細情報を表示 -->
+  <%= link_to question_path(@question) do %>
+    <div class="content_post">
+      <!-- 画像表示部分 -->
+      <div class="image-container" style="background-image: url(<%= url_for(@question.image) if @question.image.attached? %>);"></div>
+      
+      <!-- 詳細情報表示部分 -->
+      <div class="text-container">
+        <p><strong>症状:</strong> <%= @question.symptoms %></p>
+        <p><strong>進行状況:</strong> <%= @question.progress %></p>
+        <p><strong>薬:</strong> <%= @question.medicine %></p>
+        <p><strong>病院:</strong> <%= @question.hospital %></p>
+        <p><strong>習慣:</strong> <%= @question.habit %></p>
+        <p><strong>お気に入りの食べ物:</strong> <%= @question.favorite_food %></p>
+        <p><strong>お気に入りの場所:</strong> <%= @question.favorite_place %></p>
+      </div>
+    </div>
+  <% end %>
+  <!-- コメント登録フォーム -->
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@question, @questions_answer], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: "form-control" %>
+        <%= form.submit "SEND", class: "btn btn-primary" %>
+      <% end %>
+    <% else %>
+      <strong>
+        <p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+      </strong>
+    <% end %>
+  </div>
+
+  <!-- コメント一覧表示 -->
+  <div class="comments">
+    <h4>＜コメント一覧＞</h4>
+    <% @questions_answers.each do |questions_answer| %>
+      <p>
+        <strong>
+          <%= link_to questions_answer.user.nickname, "/users/#{questions_answer.user_id}" %>：
+        </strong>
+        <%= questions_answer.text %>
+      </p>
+    <% end %>
+  </div>
+</div>
