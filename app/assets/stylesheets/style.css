@@ -1,14 +1,28 @@
 /* ベース設定 */
-body {
-  font-family: 'Comic Sans MS', sans-serif; /* ポップ調フォント */
-  color: #333;
-  margin: 0;
-  padding: 0;
+/* ヘッダー固定 */
+header {
+  position: fixed; /* 固定表示 */
+  top: 0; /* 上端に配置 */
+  width: 100%; /* 横幅を画面いっぱいに広げる */
+  z-index: 1000; /* 他の要素より上に表示 */
+  background-color: #fff; /* 背景色を指定（必要に応じて変更） */
+  padding: 10px 0;
 }
 
-header, footer {
-  flex-shrink: 0; /* ヘッダーとフッターの高さを固定 */
+/* フッター固定 */
+footer {
+  position: fixed; /* 固定表示 */
+  bottom: 0; /* 下端に配置 */
+  width: 100%; /* 横幅を画面いっぱいに広げる */
+  z-index: 1000; /* 他の要素より上に表示 */
+  background-color: #fff; /* 背景色を指定（必要に応じて変更） */
+  padding: 10px 0;
 }
+
+/* コンテンツの余白調整 */
+body {
+  padding-top: 80px; /* ヘッダーの高さ分を確保（必要に応じて調整） */
+  padding-bottom: 50px; /* フッターの高さ分を確保（必要に応じて調整） */
 
 main {
   flex-grow: 1; /* フォームなどのコンテンツ部分が余ったスペースを埋める */
@@ -59,7 +73,7 @@ main {
 
 .content_post {
   position: relative; /* 子要素を絶対位置で配置するための設定 */
-  width: 150%; /* 必要に応じてサイズを調整 */
+  width: 120%; /* 必要に応じてサイズを調整 */
   height: 180px; /* 背景画像の高さを調整 */
   background-size: cover; /* 背景画像を適切に表示 */
   background-position: center;
@@ -213,7 +227,7 @@ h2 {
 
 .content_post {
   width: 100%;
-  max-width: 800px; /* Adjust based on desired width */
+  max-width: 600px; /* Adjust based on desired width */
   margin: 20px auto; /* Centering and spacing between posts */
   padding: 20px;
   background-color: #fff;
@@ -345,7 +359,7 @@ footer {
   display: flex; /* 横並び配置 */
   flex-wrap: wrap; /* スペースが足りない場合に折り返し */
   gap: 20px; /* 画像とテキストの間隔 */
-  padding: 20px;
+  padding: 20px 20px 60px 20px;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -379,4 +393,19 @@ footer {
   margin: 0 auto;
   border: 1px solid #ddd;
   border-radius: 8px;
+}
+
+.map-comment {
+  justify-content: center;
+}
+
+.search-form {
+  position: absolute; /* 要素を自由配置 */
+  top: 100px;          /* 上からの距離 */
+  right: 50px;        /* 右からの距離 */
+  z-index: 10;        /* 必要に応じて重なり順を調整 */
+  background: #fff;   /* 背景色 */
+  padding: 10px;      /* 内側の余白 */
+  border-radius: 5px; /* 角丸 */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影をつける */
 }

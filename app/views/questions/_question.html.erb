@@ -1,0 +1,8 @@
+<div class="question">
+  <h3><%= question.symptoms %></h3>
+  <p><%= question.progress %></p>
+  <p><%= question.medicine %></p>
+  <% if question.was_attached? %>
+    <%= image_tag(question.image) %>
+  <% end %>
+</div>

@@ -1,4 +1,4 @@
-<h2>質問相談箱</h2>
+<h2>どうしよう!?</h2>
 <div class="contents row">
   <!-- 質問相談の写真と詳細情報を表示 -->
   <%= link_to question_path(@question) do %>
@@ -22,8 +22,8 @@
   <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@question, @questions_answer], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2", class: "form-control" %>
-        <%= form.submit "SEND", class: "btn btn-primary" %>
+        <%= form.text_area :text, placeholder: "コメントする（例:マメに水を変えてあげてね）", rows: "2", class: "form-control" %>
+        <%= form.submit "応援するよ！", class: "btn btn-primary" %>
       <% end %>
     <% else %>
       <strong>

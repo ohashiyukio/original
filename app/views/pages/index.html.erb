@@ -1,3 +1,8 @@
+<%= form_with(url: search_questions_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: "質問相談を検索する", class: "search-input" %>
+  <%= form.submit "検索", class: "search-btn" %>
+<% end %>
+
 <div class="center-container">
   <div class="left-center">
     <p class="main-text-left">今日も元気だよ〜</p>
@@ -11,7 +16,7 @@
   </div>
 
   <div class="right-center">
-    <p class="main-text-right">どうしたの？</p>
+    <p class="main-text-right">どうしよう⁉</p>
     <p class="sub-text-right">質問相談箱</p>
     <% @questions.each do |question| %>
     <div class="content_post" style="background-image: url(<%= url_for(question.image) if question.image.attached? %>);">

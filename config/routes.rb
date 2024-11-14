@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resources :pets, only: [:new, :create, :show]
   resources :questions, only: [:show, :new, :create] do
     resources :questions_answers, only: :create
+  collection do
+    get 'search'
   end
+  end 
 
 get 'my_page', to: 'users#my_page'
 end
