@@ -12,9 +12,10 @@ class PetsController < ApplicationController
   def create
     @pet = current_user.pets.build(pet_params)
     if @pet.save
-      redirect_to pets_path, notice: 'ペットが登録されました'
-    else
-      render :new
+      redirect_to root_path, notice: 'ペットが登録されました'
+    else  
+      flash.now[:alert] = "登録に失敗しました。必要な項目を入力してください。"
+      render :new, status: :unprocessable_entity
     end
   end
 
