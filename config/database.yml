@@ -20,6 +20,8 @@ test:
 
 production:
   <<: *default
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
   database: original_development
   username: original
   password: #<%= ENV["ORIGINAL_DATABASE_PASSWORD"] %>
