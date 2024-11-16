@@ -1,47 +1,36 @@
-# README
+## アプリケーション名 
+カメ日記
+## アプリケーション概要
+カメを飼っているユーザーの困り事の情報共有の場
+## URL
 
-## users テーブル
+## テスト用アカウント
 
-nickname | string | null: false |
-email    | string | null: false |
-encrypted_password | string | null: false |
+## 利用方法　
+ログイン後、日記投稿と質問相談投稿。質問相談投稿にはコメント投稿機能。
 
-## petsテーブル
-pets_name    | string | null: false |
-kind_id      | integer | null: false |
-sex_id       | integer | null: false |
-birthday_id  | integer| null: false |
-family_day_id| integer| null: false |
-user         | references | null: false, foreign_key: true  |
+## アプリ作成背景
+開発者自身がカメを飼っていた時に困り事の相談相手がいなかったため
+## 今後の実装予定
+地図上で現在位置から近い動物病院やペットショップのピン表示
 
-## association
-belongs_to:  user
-has_many:    diary
+## DB設計
+![alt text](image.png)
 
-## diariesテーブル
-comment_text | string | null: false |
-pet          | references | null: false, foreign_key: true  |
-room         | text   | null: false |
+## 画面遷移図
+![alt text](image-1.png)
 
-## association
-belongs_to :pet
-has_one_attached :image
+## 開発環境
+1. フロントエンド
+HTML CSS
+2. バックエンド
+Ruby on Rails(v7.0.0)
+3. テキストエディタ
+VSCord
+4. API
+GoogleMaps API
 
-## costsテーブル
-amount | string | null: false |
-memo   | string | null: false |
-image  | string | null: false |
+## 製作時間
+1週間
 
-## questionsテーブル
-symptoms | text   | null: false |
-progress | text   | null: false |
-medicine | string | null: false |
-hospital | string | null: false |
-pet_id   | references | null: false, foreign_key: true  |
-habit    | string | null: false |
-favorite_food  | string | null: false |
-favorite_place | string | null: false |
 
-## association
-belongs_to :pet
-has_one_attached :image
