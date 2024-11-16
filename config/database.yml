@@ -8,7 +8,7 @@ development:
   username: root
   password:
   host: localhost
-  database: kamediary_development
+  database: original_development
 
 test:
   <<: *default
@@ -16,9 +16,10 @@ test:
   username: root
   password:
   host: localhost
-  database: kamediary_rails7_test
+  database: original_test
+
 production:
   <<: *default
-  database: original_production
+  database: original_development
   username: original
   password: #<%= ENV["ORIGINAL_DATABASE_PASSWORD"] %>
