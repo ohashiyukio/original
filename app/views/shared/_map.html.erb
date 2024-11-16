@@ -1,5 +1,5 @@
-<div id="map" style="height: 600px; position: relative;">
-  <div id="search-container" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 1000; background-color: white; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+<div id="map" style="height: 600px; position: relative; z-index: 1;">
+  <div id="search-container" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 9999; background-color: white; padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
     <input id="search-box" type="text" placeholder="場所を検索" style="width: 300px; padding: 5px; border: none; outline: none;" />
   </div>
 </div>
@@ -8,7 +8,7 @@
   function initMap() {
     const mapOptions = {
       center: { lat: 35.6803997, lng: 139.7690174 }, // 初期位置（例として東京）
-      zoom: 10 // ズームレベル
+      zoom: 10 
     };
 
     const map = new google.maps.Map(document.getElementById("map"), mapOptions);
@@ -26,7 +26,7 @@
           new google.maps.Marker({
             position: userLocation,
             map: map,
-            title: "Your Location",
+            title: "あなたの今いる場所",
           });
         },
         function (error) {
@@ -39,7 +39,6 @@
 
     const input = document.getElementById("search-box");
     const searchBox = new google.maps.places.SearchBox(input);
-
     searchBox.addListener("places_changed", function () {
       const places = searchBox.getPlaces();
 

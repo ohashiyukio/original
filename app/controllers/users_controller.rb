@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:my_page]
-  
+  before_action :authenticate_user!
+
   def my_page
-    @pets = current_user.pets
+    @user = User.find(params[:id])
+    @pets = @user.pets
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 end

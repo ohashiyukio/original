@@ -3,7 +3,7 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
-  end  
+  end
 
   def new
     @pet = Pet.new
@@ -12,7 +12,7 @@ class PetsController < ApplicationController
   def create
     @pet = current_user.pets.build(pet_params)
     if @pet.save
-      redirect_to pets_path, notice: "ペットが登録されました"
+      redirect_to pets_path, notice: 'ペットが登録されました'
     else
       render :new
     end

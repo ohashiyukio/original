@@ -1,19 +1,11 @@
-<h2>マイページ</h2>
+<h2><%= @user.nickname %>さんのマイページ</h2>
+
 <% @pets.each do |pet| %>
-  <div class="content_post" style="background-image: url(<%=url_for(pet.image) if pet.image.attached? %>);">
-    <p class="comment-text"><%= pet.pets_name %> <!-- ペットの名前を表示 -->
-    <span class="kind">
-      <%= pet.kind %> <!-- 種類を表示 -->
-    </span>
-    <span class="sex">
-      <%= pet.sex.name %> <!-- 性別を表示 -->
-    </span>
-    <span class="birthday_id">
-      <%= pet.birthday_id %> <!-- 誕生日を表示 -->
-    </span>
-    <span class="family_day_id">
-      <%= pet.family_day_id %> <!-- 家族になった日を表示 -->
-    </span></p>
+  <div class="content_post" style="background-image: url(<%= url_for(pet.image) if pet.image.attached? %>);">
+    <p class="comment-text"><%= pet.pets_name %> 
+    <span class="kind"><%= pet.kind %></span>
+    <span class="sex"><%= pet.sex.name %></span>
+    <span class="birthday_id"><%= pet.birthday_id %></span>
+    <span class="family_day_id"><%= pet.family_day_id %></span></p>
   </div>
 <% end %>
-

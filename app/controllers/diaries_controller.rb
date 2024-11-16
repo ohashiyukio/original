@@ -1,7 +1,6 @@
 class DiariesController < ApplicationController
-
   def index
-    @diaries = Diary.all  # すべての日記を取得
+    @diaries = Diary.all
   end
 
   def new
@@ -11,7 +10,7 @@ class DiariesController < ApplicationController
   def create
     @diary = Diary.new(diary_params)
     if @diary.save
-      redirect_to root_path, notice: "投稿が完了しました"
+      redirect_to root_path, notice: '投稿が完了しました'
     else
       render :new
     end

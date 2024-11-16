@@ -27,21 +27,21 @@
       <% end %>
     <% else %>
       <strong>
-        <p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p>
+        <p>※ コメントの投稿には新規登録/ログインが必要です ※</p>
       </strong>
     <% end %>
   </div>
 
-  <!-- コメント一覧表示 -->
-  <div class="comments">
-    <h4>＜コメント一覧＞</h4>
-    <% @questions_answers.each do |questions_answer| %>
-      <p>
-        <strong>
-          <%= link_to questions_answer.user.nickname, "/users/#{questions_answer.user_id}" %>：
-        </strong>
-        <%= questions_answer.text %>
-      </p>
-    <% end %>
-  </div>
+<div class="comments">
+  <h4>＜コメント一覧＞</h4>
+  <% @questions_answers.each do |questions_answer| %>
+    <p>
+ <strong>
+    <%= link_to questions_answer.user.nickname, user_my_page_path(questions_answer.user), class: "nickname-link" %>：
+  </strong>
+</strong>
+      <%= questions_answer.text %>
+    </p>
+  <% end %>
+</div>
 </div>
