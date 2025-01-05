@@ -5,7 +5,7 @@
 カメを飼っているユーザーの困り事の情報共有の場
 
 ## URL
-https://kamediary.onrender.com
+https://kamedi.onrender.com
 
 ## テスト用アカウント
 ユーザー名：admin
