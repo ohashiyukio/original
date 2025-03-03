@@ -5,7 +5,7 @@
 
 <div class="center-container">
   <div class="left-center">
-    <p class="main-text-left">今日も元気だよ〜</p>
+    <p class="main-text-left">今日も元気だよ〜!</p>
     <p class="sub-text-left">カメ日記</p>
     <% @diaries.each do |diary| %>
       <div class="content_post" style="background-image: url(<%= url_for(diary.image) if diary.image.attached? %>);">
